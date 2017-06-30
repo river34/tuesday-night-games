@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,24 +15,20 @@ public class LoadManager : MonoBehaviour {
     public GameObject EventSystems;
 
     Status status;
-    Status lastStatus;
     string currentGame;
+    Resolution defaultResolution;
 
     enum Status {Title, Select, Game, End};
 
     void Start ()
     {
+        defaultResolution = Screen.currentResolution;
         Init ();
     }
 
     void Init ()
     {
         status = Status.Title;
-    }
-
-    void LateUpdate ()
-    {
-        lastStatus = status;
     }
 
     void Update ()
@@ -54,10 +50,6 @@ public class LoadManager : MonoBehaviour {
         }
         if (status == Status.Game)
         {
-            if (lastStatus != status)
-            {
-                StartCoroutine (Show (LoadPage.GetComponent<Image>(), SelectPage, GamePage));
-            }
             EventSystems.SetActive (false);
             if (Input.GetKeyDown (KeyCode.Escape))
             {
@@ -76,8 +68,9 @@ public class LoadManager : MonoBehaviour {
 
     public void UnloadGame (string game)
     {
-        SceneManager.UnloadScene (game);
+        SceneManager.UnloadSceneAsync (game);
         currentGame = null;
+        Screen.SetResolution(defaultResolution.width, defaultResolution.height, Screen.fullScreen);
     }
 
     public void LoadGame (string game)
@@ -85,6 +78,7 @@ public class LoadManager : MonoBehaviour {
         SceneManager.LoadScene (game, LoadSceneMode.Additive);
         status = Status.Game;
         currentGame = game;
+        StartCoroutine(Show(LoadPage.GetComponent<Image>(), SelectPage, GamePage));
     }
 
     public void SetLoadText (string text)
@@ -115,7 +109,7 @@ public class LoadManager : MonoBehaviour {
 
         if (hide != null) hide.SetActive (false);
 
-        while (load.color.a > float.Epsilon)
+        while (load.color.a > 0.1)
         {
             color.a -= Time.deltaTime;
             load.color = color;

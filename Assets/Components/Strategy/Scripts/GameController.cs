@@ -145,9 +145,6 @@ namespace Strategy
 			GhostBar = ProgressUI.transform.Find ("GhostBar").gameObject;
 			SpiritBar = ProgressUI.transform.Find ("SpiritBar").gameObject;
 
-			// resolution
-			Screen.SetResolution (960, 540, true);
-
 			Init ();
 		}
 
@@ -166,6 +163,9 @@ namespace Strategy
 
 		public void Init ()
 		{
+			// resolution
+			Screen.SetResolution (960, 540, Screen.fullScreen);
+
 			exp = 0;
 			day = 1;
 
