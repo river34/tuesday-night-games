@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 838ad5977d5eb4f00b7fe04ae04dedec
+timeCreated: 1488458528
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Prince of Persia
+  fontNames:
+  - Prince of Persia
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f99a1fe9263ac4445ba2d13ce6ccb4dc
+timeCreated: 1489637507
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Vintage Avalanche
+  fontNames:
+  - Vintage Avalanche
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
